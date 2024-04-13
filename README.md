@@ -34,3 +34,10 @@ url(r'', include(('learning_logs.urls','learning_logs'), namespace='learning_log
 
 ## 19章 让用户可以新建主题、创建条目、编辑条目
 
+### issue 1
+完成创建新条目的关键代码后，运行出现 No module named 'django.core.urlresolvers' 报错，发现是django2版本中已经移除了这个模组，搬到了django.url，应该改写成
+```
+from django.urls import reverse
+```
+问题链接：https://stackoverflow.com/questions/43139081/importerror-no-module-named-django-core-urlresolvers
+
