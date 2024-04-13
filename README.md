@@ -1,7 +1,8 @@
 # learning_log
 python 从入门到实践 第十八章项目
+## 18章
 
-# issue 1
+### issue 1
 执行 python manage.py migrate 创建数据库时，出现报错：
 SyntaxError: Generator expression must be parenthesized
 
@@ -17,7 +18,7 @@ SyntaxError: Generator expression must be parenthesized
 
  安装后，重新执行创建数据库命令成功！！
 
-# issue 2
+### issue 2
 在 learning_log 文件夹下编写 urls.py 文件时，当添加包含模块 learning_logs 
 ```
 url(r'', include('learning_logs.urls', namespace='learning_logs'))
@@ -28,5 +29,8 @@ url(r'', include('learning_logs.urls', namespace='learning_logs'))
 url(r'', include(('learning_logs.urls','learning_logs'), namespace='learning_logs')),
 ```
 帮助链接：https://stackoverflow.com/questions/48608894/improperlyconfigurederror-about-app-name-when-using-namespace-in-include
-# 笔记
+### 笔记
 每当需要修改”学习笔记“管理的数据时，都需要 1.修改models.py 2.对learning_logs调用makemigrations，让Django迁移项目
+
+## 19章 让用户可以新建主题、创建条目、编辑条目
+
