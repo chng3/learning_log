@@ -41,3 +41,14 @@ from django.urls import reverse
 ```
 问题链接：https://stackoverflow.com/questions/43139081/importerror-no-module-named-django-core-urlresolvers
 
+### 创建用户 issue1
+包含应用程序user的url写法应该遵循前面编写learning_log的url，所以应为：
+```
+url(r'^users/', include(('users.urls','users'), namespace='users')),
+```
+
+### 注销 issue1
+创建视图函数logout_view()时，在views.py文件中导入模块reverse时应与前面的新建主题的问题的解法一致
+```
+from django.urls import reverse
+```
