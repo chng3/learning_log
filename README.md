@@ -52,3 +52,11 @@ url(r'^users/', include(('users.urls','users'), namespace='users')),
 ```
 from django.urls import reverse
 ```
+
+### 将数据关联到用户 issue1
+在导入模型User和尝试添加字段owner到模型User的外键时出现报错：__init__() missing 1 required positional argument: 'on_delete'
+解决方式：加入参数on_delete=models.CASCADE，原因是使用的是Django2.0版本，on_delete参数是需要的,所以代码应为：
+```
+owner = models.ForeignKey(User,on_delete=models.CASCADE)
+```
+解决链接：https://stackoverflow.com/questions/44026548/getting-typeerror-init-missing-1-required-positional-argument-on-delete
