@@ -52,7 +52,11 @@ def new_topic(request):
 def new_entry(request, topic_id):
     # 在特定的主题中添加新条目
     topic = Topic.objects.get(id=topic_id)
-
+    
+    # 禁止用户通过输入类似URL来修改其他用户的条目
+    if topic.owner != request.user:
+        raise Http404
+        
     if request.method != 'POST':
         # 未提交数据，创建一个空表单
         form = EntryForm()

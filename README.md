@@ -60,3 +60,17 @@ from django.urls import reverse
 owner = models.ForeignKey(User,on_delete=models.CASCADE)
 ```
 解决链接：https://stackoverflow.com/questions/44026548/getting-typeerror-init-missing-1-required-positional-argument-on-delete
+
+## 20章 设置应用程序的样式并对其进行部署
+
+### issue 1 
+#### 安装bootstrap3时出现卸载掉原来项目的Django2.0版本，自动安装了Django4.0导致服务器启动报错
+解决方法：先安装回Django2.0，让本地启动服务器正常，不然之前写的代码都可能出现问题如果继续使用Django4.0的话。安装回去2.0后出现提示一些依赖无法使用，因为刚安装了bootstrap3的默认最新版本吧。通过查找bootstrap3 发布记录版本兼容性，发现11.1.0版本支持且安装后本地服务一切正常。
+1. 先安装回Django2.0
+```
+pip3 install django==2.0
+```
+2. 下载适合Django2.0版本的bootstrap3
+```
+pip install django-bootstrap3==11.1.0
+```
